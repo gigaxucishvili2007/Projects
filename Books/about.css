@@ -1,0 +1,59 @@
+.pages{
+    display: flex;
+    justify-content: flex-start;
+    gap: 25px;
+    font-family: "HelveticaNeue LT 55 Roman";
+    font-size: 13px;
+}
+
+@font-face{
+    font-family: "Helvetica Neue";
+    src: url(./fonts/HelveticaNeueHeavy.otf);
+}
+
+.icons{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: -41px; /* bottom size */
+    gap: 10px; /* space size */
+}
+
+.wave {
+    position: relative;
+    top: 500px;
+    transform: scaleY(-1);
+}
+
+
+
+
+.zgapariko-background{
+    position: relative;
+    top: -500px;
+    right: 10px;
+}
+
+.banner{
+    position: relative;
+    top: -353px;
+    right: 10px;
+}
+
+.nine-persons{
+    width: 1430px;
+    background-color: #f5f5ef;
+    height: 300px;
+    position: relative;
+    top: -373px;
+    font-family: "Helvetica Neue";
+    font-size: 12px;
+}
+
+.characters{
+    width: 300px;
+    position: relative;
+    left: 20px;
+    color: #f37765;
+    padding-top: 20px;
+}
