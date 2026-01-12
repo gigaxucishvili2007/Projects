@@ -5,13 +5,18 @@
 }
 
 @font-face{
-    font-family: "Helvetica Neue LT GEO 95 Black";
-    src: url(./assets/fonts/Helvetica\ Neue\ LT\ GEO\ 95\ Black.ttf);
+    font-family: "Helvetica Neue 75 Bold";
+    src: url(./assets/fonts/Helvetica\ Neue\ LT\ GEO\ 75\ Bold.ttf);
 }
 
 body {
     height: 100vh;
-    font-family: "Helvetica Neue LT GEO 95 Black";
+    /* font-family: "Helvetica Neue 75 Bold"; */
+}
+
+@font-face{
+    font-family: "Helvetica Neue LT 55 Roman";
+    src: url(./assets/fonts/helveticaneuelt_roman.ttf);
 }
 
 /* nav socmedia / social-media */
@@ -45,6 +50,7 @@ body {
     gap: 10px;
     padding-bottom: 15px;
     text-transform: uppercase;
+    font-family: "Helvetica Neue 75 Bold";
 
 }
 
@@ -178,7 +184,7 @@ a {
 .ticker-track {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 90px;
     white-space: nowrap;
     position: relative;
 }
@@ -186,7 +192,7 @@ a {
 .item {
     font-size: 18px;
     color: white;
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: "Helvetica Neue 75 Bold";
     white-space: nowrap;
     position: absolute;
     will-change: transform;
@@ -282,6 +288,7 @@ a {
     justify-content: center;
     align-items: center;
     gap: 25px;
+    font-family: "Helvetica Neue 75 Bold";
 }
 
 .cards4f {
@@ -327,6 +334,7 @@ a {
     gap: 20px;
     justify-content: center;
     align-items: center;
+    font-family: "Helvetica Neue 75 Bold";
 }
 
 .s5-2 {
@@ -338,6 +346,7 @@ a {
     gap: 20px;
     justify-content: center;
     align-items: center;
+    font-family: "Helvetica Neue 75 Bold";
 }
 
 .s5-3 {
@@ -361,8 +370,11 @@ a {
 
 #section6 {
     width: 100%;
-    height: 700px;
+    height: 430px;
     background-color: #B1D8D2;
+    background-image: url(./assets/img/review\ wallpaper.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -377,6 +389,7 @@ a {
     align-items: center;
     gap: 30px;
     padding-top: 50px;
+    font-family: "Helvetica Neue LT 55 Roman";
 }
 
 #section7 img {
@@ -392,6 +405,7 @@ a {
     border: none;
     background-color: #F6F0EA;
     outline: none;
+    font-family: "Helvetica Neue 75 Bold";
 }
 
 .promocode {
@@ -481,8 +495,8 @@ ul {
 }
 
 .insta-gallery img {
-    width: 60px;
-    height: 60px;
+    width: 22px;
+    height: 22px;
     object-fit: cover;
     border-radius: 8px;
 }
@@ -499,6 +513,7 @@ ul {
     margin-left: 50px;
     position: relative;
     top: -43.5px;
+    font-family: "Helvetica Neue LT GEO 55 Roman";
 }
 
 
@@ -512,7 +527,62 @@ ul {
     margin-left: 55px;
     position: relative;
     top: -43.5px;
+    font-family: "Helvetica Neue LT GEO 55 Roman";
 }
 
+
+.user-rate{
+    font-size: 18.2px;
+    color: #8f9494;
+    margin-left: 250px;
+    position: relative;
+    top: 110px;
+}
+
+
+.review-tx{
+    width: 300px;
+    font-family: "Helvetica Neue LT 55 Roman";
+    position: relative;
+    top: 150px;
+    left: 252px;
+    top: 118px;
+    color: #8f9494;
+    font-size: 15px;
+    width: 295px;
+}
+
+
+.user1{
+    position: relative;
+    left: 238px;
+    top: 132px;
+}
+
+.sections{
+    font-family: "Helvetica Neue LT 55 Roman";
+}
+
+.zgapariko-description{
+    font-family: "Helvatica Neue LT 55 Roman";
+}
+
+.book-for-you{
+    text-transform: uppercase;
+    font-family: "Helvetica Neue 75 Bold";
+}
+
+.test-text{
+    font-family: "Helvetica Neue 75 Bold";
+}
+
+.create-zgapariko{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    left: 350px;
+    top: 130px;
+    font-size: 11px;
+}
 
 /* responsives */

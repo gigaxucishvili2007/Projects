@@ -16,16 +16,20 @@ body {
     display: flex;
     justify-content: center;
     padding-top: 20px;
+    font-family: "Helvetica Neue 75 Bold";
 
 }
 
+@font-face{
+    font-family: "Helvetica Neue 75 Bold";
+    src: url(./assets/fonts/Helvetica\ Neue\ LT\ GEO\ 75\ Bold.ttf);
+    src: url(./assets/fonts/helveticaneuelt_roman.ttf);
+}
+
 .nav {
-    position: absolute;
-    left: 0;
-    margin-left: 20px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .nav a {
@@ -75,6 +79,7 @@ body {
     color: #ff4a2d;
     line-height: 1.2;
     margin-bottom: 24px;
+    font-family: "Helvetica Neue 75 Bold";
 }
 
 .team-text span {
@@ -283,9 +288,50 @@ ul {
 }
 
 .insta-gallery img {
-    width: 60px;
-    height: 60px;
+    width: 25px;
+    height: 25px;
     object-fit: cover;
     border-radius: 8px;
 }
 
+.shop{
+    border: solid 2px;
+    border-radius: 15px;
+    height: 25px;
+    padding-left: 2px;
+    padding-right: 2px;
+    position: relative;
+    top: -2px;
+}
+
+.icons{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: -470px;
+}
+
+.user-rate{
+    font-size: 18.2px;
+    color: white;
+    margin-left: 430px;
+    position: relative;
+    top: 100px;
+}
+
+.review-tx{
+    width: 300px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: relative;
+    top: 150px;
+    left: 431px;
+    top: 115px;
+    color: #dfedec;
+    font-size: 15px;
+}
+
+.user1{
+    position: relative;
+    left: 420px;
+    top: 120px;
+}
