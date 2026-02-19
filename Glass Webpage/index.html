@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>პრემიუმ მხედველობის სათვალეები | ClearVision Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Georgian', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ===== ANNOUNCEMENT BAR ===== */
+        .announcement-bar {
+            background: linear-gradient(90deg, #d4af37, #f4e89a, #d4af37);
+            color: #000;
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .announcement-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .announcement-bar span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== HEADER / NAVBAR ===== */
+        .navbar {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #d4af37, #f4e89a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .logo small {
+            font-size: 11px;
+            font-weight: 400;
+            display: block;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #888, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-actions a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .nav-actions a:hover {
+            color: #d4af37;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #d4af37;
+            color: #000;
+            font-size: 10px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(212, 175, 55, 0.4);
+            border-radius: 50%;
+            animation: float-particle 8s infinite;
+        }
+
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 50px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 7vw, 72px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #d4af37 50%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 4s ease infinite;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #999;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #d4af37, #b8962e);
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Noto Sans Georgian', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 16px 40px;
+            background: transparent;
+            color: #d4af37;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Noto Sans Georgian', sans-serif;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #d4af37;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* ===== GLASSES SHOWCASE ===== */
+        .hero-image-section {
+            padding: 0 20px 80px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .glasses-showcase-img {
+            width: 100%;
+            max-width: 700px;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(145deg, #1a1a1a, #111);
+            border-radius: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glasses-showcase-img::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(212,175,55,0.05), transparent, rgba(212,175,55,0.05));
+            animation: rotateBG 10s linear infinite;
+        }
+
+        @keyframes rotateBG {
+            100% { transform: rotate(360deg); }
+        }
+
+        .glasses-display {
+            position: relative;
+            z-index: 2;
+        }
+
+        .glow-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            animation: pulseRing 3s ease-in-out infinite;
+        }
+
+        .glow-ring:nth-child(2) { width: 320px; height: 320px; animation-delay: 0.5s; }
+        .glow-ring:nth-child(3) { width: 400px; height: 400px; animation-delay: 1s; }
+
+        @keyframes pulseRing {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        /* ===== MARQUEE ===== */
+        .marquee-section {
+            overflow: hidden;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .marquee-track {
+            display: flex;
+            animation: marqueeScroll 20s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-item {
+            white-space: nowrap;
+            padding: 0 40px;
+            font-size: 14px;
+            color: #333;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .marquee-item span { color: #d4af37; margin: 0 15px; }
+
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== TRUST BADGES ===== */
+        .trust-section {
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .trust-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .trust-item { padding: 20px; }
+        .trust-icon { font-size: 28px; margin-bottom: 10px; }
+
+        .trust-text {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        .trust-text strong {
+            display: block;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        /* ===== SECTION COMMON ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: #777;
+            font-size: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ===== FEATURES ===== */
+        .features-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: linear-gradient(145deg, rgba(25,25,25,0.8), rgba(15,15,15,0.8));
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .feature-card:hover::before { opacity: 1; }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+        .feature-card p { font-size: 14px; color: #777; line-height: 1.7; }
+
+        /* ===== ORDER FORM ===== */
+        .order-form-section {
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-form-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212,175,55,0.06), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .order-form-container {
+            max-width: 580px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .order-form-card {
+            background: linear-gradient(145deg, rgba(25,25,25,0.95), rgba(12,12,12,0.95));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 28px;
+            padding: 50px 40px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, #f4e89a, #d4af37, transparent);
+        }
+
+        .order-form-card::after {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(212,175,55,0.08), transparent);
+            border-radius: 50%;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .form-header .form-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .form-header h3 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-header p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .form-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .form-benefit {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .form-benefit .benefit-check {
+            color: #2ecc71;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #aaa;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group label .required {
+            color: #d4af37;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            color: #fff;
+            font-size: 15px;
+            font-family: 'Noto Sans Georgian', sans-serif;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .form-input::placeholder {
+            color: #555;
+        }
+
+        .form-input:focus {
+            border-color: rgba(212, 175, 55, 0.5);
+            background: rgba(212, 175, 55, 0.03);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.08);
+        }
+
+        .form-input:hover {
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        select.form-input {
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23d4af37'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        select.form-input option {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent);
+            margin: 25px 0;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #d4af37, #b8962e);
+            color: #000;
+            border: none;
+            border-radius: 16px;
+            font-size: 17px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Noto Sans Georgian', sans-serif;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .form-submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .form-submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .form-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.35);
+        }
+
+        .form-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .form-footer span {
+            color: #d4af37;
+        }
+
+        .form-security {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .form-security-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            color: #555;
+        }
+
+        /* Success Animation */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .form-success.show {
+            display: block;
+            animation: fadeInSuccess 0.5s ease;
+        }
+
+        @keyframes fadeInSuccess {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .success-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .success-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #2ecc71;
+            margin-bottom: 10px;
+        }
+
+        .success-text {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, rgba(15,15,15,1), rgba(10,10,10,1));
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .product-card {
+            background: linear-gradient(145deg, #1a1a1a, #111);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 5px 14px;
+            background: linear-gradient(135deg, #d4af37, #b8962e);
+            color: #000;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 50px;
+            z-index: 3;
+            letter-spacing: 0.5px;
+        }
+
+        .product-badge.sale { background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; }
+        .product-badge.new { background: linear-gradient(135deg, #2ecc71, #27ae60); color: #fff; }
+
+        .product-image {
+            aspect-ratio: 4/3;
+            background: linear-gradient(145deg, #1e1e1e, #141414);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, #1a1a1a);
+        }
+
+        .product-info { padding: 25px; }
+
+        .product-category {
+            font-size: 11px;
+            color: #d4af37;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .product-name { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+
+        .product-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 15px; }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .stars { color: #d4af37; font-size: 13px; }
+        .rating-count { font-size: 12px; color: #666; }
+
+        .product-price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: #d4af37;
+        }
+
+        .product-price .original {
+            font-size: 14px;
+            color: #555;
+            text-decoration: line-through;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+
+        .btn-add-cart {
+            padding: 10px 22px;
+            background: linear-gradient(135deg, #d4af37, #b8962e);
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Noto Sans Georgian', sans-serif;
+        }
+
+        .btn-add-cart:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .product-glasses-svg { transform: scale(0.7); }
+
+        /* ===== COMPARISON ===== */
+        .comparison-section {
+            padding: 100px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 50px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 18px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 14px;
+        }
+
+        .comparison-table th {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        .comparison-table th:last-child { color: #d4af37; }
+        .comparison-table td:first-child { text-align: left; color: #aaa; }
+        .comparison-table td:last-child { background: rgba(212, 175, 55, 0.03); }
+
+        .check { color: #2ecc71; font-size: 18px; }
+        .cross { color: #e74c3c; font-size: 18px; }
+
+        /* ===== REVIEWS ===== */
+        .reviews-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, rgba(10,10,10,1), rgba(15,15,15,1));
+        }
+
+        .reviews-container { max-width: 1200px; margin: 0 auto; }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
+        }
+
+        .review-card {
+            background: linear-gradient(145deg, #1a1a1a, #111);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .review-card:hover { border-color: rgba(212, 175, 55, 0.2); }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37, #b8962e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .review-author { font-size: 15px; font-weight: 600; }
+
+        .review-verified {
+            font-size: 11px;
+            color: #2ecc71;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .review-stars { color: #d4af37; margin-bottom: 12px; font-size: 14px; }
+        .review-text { font-size: 14px; color: #999; line-height: 1.7; }
+        .review-date { font-size: 12px; color: #444; margin-top: 15px; }
+
+        /* ===== FAQ ===== */
+        .faq-section {
+            padding: 100px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: rgba(20,20,20,0.5);
+        }
+
+        .faq-question {
+            padding: 22px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover { color: #d4af37; }
+
+        .faq-toggle {
+            font-size: 20px;
+            color: #d4af37;
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-answer.open {
+            max-height: 300px;
+            padding: 0 25px 22px;
+        }
+
+        .faq-answer p { font-size: 14px; color: #888; line-height: 1.7; }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212,175,55,0.08), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta-content p {
+            color: #777;
+            font-size: 16px;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .cta-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .timer-box {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 15px 20px;
+            min-width: 75px;
+        }
+
+        .timer-number { font-size: 28px; font-weight: 800; color: #d4af37; }
+
+        .timer-label {
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #050505;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 20px; color: #d4af37; }
+
+        .footer-col a {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover { color: #d4af37; }
+        .footer-col p { font-size: 13px; color: #555; line-height: 1.7; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-bottom p { font-size: 12px; color: #444; }
+
+        .payment-icons { display: flex; gap: 10px; }
+
+        .payment-icon {
+            width: 40px;
+            height: 26px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #666;
+        }
+
+        /* ===== FLOAT BTNS ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-float svg { width: 28px; height: 28px; fill: #fff; }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 45px;
+            height: 45px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            transition: all 0.3s;
+            color: #d4af37;
+            font-size: 18px;
+        }
+
+        .scroll-top.visible { opacity: 1; }
+        .scroll-top:hover { background: rgba(212, 175, 55, 0.3); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .navbar { padding: 12px 20px; }
+            .hero-stats { gap: 30px; }
+            .stat-number { font-size: 28px; }
+            .comparison-table { font-size: 12px; }
+            .comparison-table th, .comparison-table td { padding: 12px 10px; }
+            .cta-timer { gap: 10px; }
+            .timer-box { padding: 12px 15px; min-width: 60px; }
+            .timer-number { font-size: 22px; }
+            .order-form-card { padding: 35px 25px; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-cta { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-secondary { width: 100%; max-width: 280px; justify-content: center; }
+            .features-grid, .products-grid, .reviews-grid { grid-template-columns: 1fr; }
+            .form-benefits { flex-direction: column; align-items: center; }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Form variant 2 - bottom form different style */
+        .order-form-section.variant-bottom .order-form-card {
+            border-color: rgba(46, 204, 113, 0.2);
+        }
+
+        .order-form-section.variant-bottom .order-form-card::before {
+            background: linear-gradient(90deg, transparent, #2ecc71, #d4af37, #2ecc71, transparent);
+        }
+
+        .order-form-section.variant-bottom .form-submit-btn {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        .order-form-section.variant-bottom .form-submit-btn:hover {
+            box-shadow: 0 15px 40px rgba(46, 204, 113, 0.35);
+        }
+
+        /* Pulse animation for order buttons */
+        .pulse-attention {
+            animation: pulseAttention 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseAttention {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        <span>🎉 უფასო მიტანა მთელ საქართველოში | კოდი: CLEAR20 — 20% ფასდაკლება 🎉</span>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            ClearVision
+            <small>PREMIUM OPTICS</small>
+        </div>
+        <div class="nav-actions">
+            <a href="#products">კოლექცია</a>
+            <a href="#reviews">შეფასებები</a>
+            <a href="#order-form-1">შეკვეთა</a>
+            <div class="cart-icon">
+                🛒
+                <div class="cart-count">0</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-particles">
+            <div class="particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; top: 60%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 40%; top: 30%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 60%; top: 70%; animation-delay: 0.5s;"></div>
+            <div class="particle" style="left: 75%; top: 25%; animation-delay: 1.5s;"></div>
+            <div class="particle" style="left: 85%; top: 55%; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 50%; top: 80%; animation-delay: 2.5s;"></div>
+            <div class="particle" style="left: 30%; top: 45%; animation-delay: 4s;"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">✦ პრემიუმ ხარისხი ✦</div>
+            <h1>პრემიუმ მხედველობის სათვალეები</h1>
+            <p>გერმანული ხარისხის ლინზები, იტალიური დიზაინის ჩარჩოები — თქვენი მხედველობისთვის საუკეთესო გადაწყვეტა</p>
+
+            <div class="hero-cta">
+                <a href="#order-form-1" class="btn-primary pulse-attention">🛒 შეუკვეთე ახლავე</a>
+                <a href="#features" class="btn-secondary">ℹ️ დეტალურად</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="counter1">0</div>
+                    <div class="stat-label">კმაყოფილი მომხმარებელი</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9 ★</div>
+                    <div class="stat-label">საშუალო შეფასება</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="counter2">0</div>
+                    <div class="stat-label">მოდელი კოლექციაში</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO IMAGE -->
+    <div class="hero-image-section">
+        <div class="glasses-showcase-img">
+            <div class="glasses-display">
+                <div class="glow-ring"></div>
+                <div class="glow-ring"></div>
+                <div class="glow-ring"></div>
+                <svg class="glasses-svg" width="300" height="120" viewBox="0 0 300 120">
+                    <ellipse cx="90" cy="55" rx="65" ry="45" fill="none" stroke="#d4af37" stroke-width="2.5" opacity="0.8"/>
+                    <ellipse cx="90" cy="55" rx="60" ry="40" fill="rgba(212,175,55,0.03)" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/>
+                    <ellipse cx="210" cy="55" rx="65" ry="45" fill="none" stroke="#d4af37" stroke-width="2.5" opacity="0.8"/>
+                    <ellipse cx="210" cy="55" rx="60" ry="40" fill="rgba(212,175,55,0.03)" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/>
+                    <path d="M155 50 Q150 40 145 50" fill="none" stroke="#d4af37" stroke-width="2.5" opacity="0.8"/>
+                    <line x1="25" y1="40" x2="5" y2="30" stroke="#d4af37" stroke-width="2" opacity="0.6"/>
+                    <line x1="275" y1="40" x2="295" y2="30" stroke="#d4af37" stroke-width="2" opacity="0.6"/>
+                    <ellipse cx="70" cy="42" rx="18" ry="8" fill="rgba(255,255,255,0.04)" transform="rotate(-15 70 42)"/>
+                    <ellipse cx="190" cy="42" rx="18" ry="8" fill="rgba(255,255,255,0.04)" transform="rotate(-15 190 42)"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- MARQUEE -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item">პრემიუმ ხარისხი <span>◆</span> გერმანული ლინზები <span>◆</span> UV400 დაცვა <span>◆</span> ანტი-რეფლექსი <span>◆</span> Blue Light ფილტრი <span>◆</span> იტალიური დიზაინი <span>◆</span> 2 წლიანი გარანტია <span>◆</span></div>
+            <div class="marquee-item">პრემიუმ ხარისხი <span>◆</span> გერმანული ლინზები <span>◆</span> UV400 დაცვა <span>◆</span> ანტი-რეფლექსი <span>◆</span> Blue Light ფილტრი <span>◆</span> იტალიური დიზაინი <span>◆</span> 2 წლიანი გარანტია <span>◆</span></div>
+        </div>
+    </div>
+
+    <!-- TRUST BADGES -->
+    <section class="trust-section">
+        <div class="trust-grid">
+            <div class="trust-item fade-in">
+                <div class="trust-icon">🚚</div>
+                <div class="trust-text"><strong>უფასო მიტანა</strong>მთელ საქართველოში 1-3 დღეში</div>
+            </div>
+            <div class="trust-item fade-in">
+                <div class="trust-icon">🔄</div>
+                <div class="trust-text"><strong>30 დღიანი დაბრუნება</strong>100% თანხის ანაზღაურება</div>
+            </div>
+            <div class="trust-item fade-in">
+                <div class="trust-icon">🛡️</div>
+                <div class="trust-text"><strong>2 წლიანი გარანტია</strong>ჩარჩოსა და ლინზებზე</div>
+            </div>
+            <div class="trust-item fade-in">
+                <div class="trust-icon">💳</div>
+                <div class="trust-text"><strong>უსაფრთხო გადახდა</strong>ბარათით ან ადგილზე</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section" id="features">
+        <div class="section-header fade-in">
+            <div class="section-tag">✦ რატომ ჩვენ ✦</div>
+            <h2>პრემიუმ ლინზების უპირატესობები</h2>
+            <p>ყოველდღიური კომფორტი და მაქსიმალური დაცვა</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🔵</div>
+                <h3>Blue Light ფილტრი</h3>
+                <p>იცავს თვალებს კომპიუტერის, ტელეფონისა და ტელევიზორის მავნე ლურჯი სინათლისგან.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">☀️</div>
+                <h3>UV400 სრული დაცვა</h3>
+                <p>100% იცავს UVA და UVB სხივებისგან. სრული ულტრაიისფერი დაცვა.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">✨</div>
+                <h3>ანტი-რეფლექსური საფარი</h3>
+                <p>ამცირებს არეკვლას და აუმჯობესებს ხედვის სიცხადეს, განსაკუთრებით ღამით.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💧</div>
+                <h3>ჰიდროფობური საფარი</h3>
+                <p>წყალი, მტვერი და თითის ანაბეჭდები ადვილად იწმინდება.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🪶</div>
+                <h3>ულტრა-მსუბუქი ჩარჩო</h3>
+                <p>მხოლოდ 18 გრამი! ტიტანის შენადნობი — მთელი დღე კომფორტულად.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🔬</div>
+                <h3>გერმანული ლინზები</h3>
+                <p>უმაღლესი ოპტიკური ხარისხი. კრისტალური სიცხადე.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ====== ORDER FORM #1 — შუაში (MIDDLE) ====== -->
+    <!-- ============================================ -->
+    <section class="order-form-section" id="order-form-1">
+        <div class="order-form-container fade-in">
+            <div class="order-form-card">
+                <!-- FORM CONTENT -->
+                <div id="formContent1">
+                    <div class="form-header">
+                        <div class="form-icon">🕶️</div>
+                        <h3>შეუკვეთე ახლავე</h3>
+                        <p>შეავსე ფორმა და ჩვენ დაგიკავშირდებით 15 წუთში</p>
+                    </div>
+
+                    <div class="form-benefits">
+                        <div class="form-benefit">
+                            <span class="benefit-check">✓</span> უფასო მიტანა
+                        </div>
+                        <div class="form-benefit">
+                            <span class="benefit-check">✓</span> ადგილზე გადახდა
+                        </div>
+                        <div class="form-benefit">
+                            <span class="benefit-check">✓</span> 30 დღე დაბრუნება
+                        </div>
+                    </div>
+
+                    <form onsubmit="submitForm(event, 1)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>სახელი <span class="required">*</span></label>
+                                <input type="text" class="form-input" placeholder="თქვენი სახელი" required>
+                            </div>
+                            <div class="form-group">
+                                <label>გვარი <span class="required">*</span></label>
+                                <input type="text" class="form-input" placeholder="თქვენი გვარი" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>ტელეფონის ნომერი <span class="required">*</span></label>
+                            <input type="tel" class="form-input" placeholder="+995 5XX XXX XXX" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>ქალაქი / რეგიონი <span class="required">*</span></label>
+                            <select class="form-input" required>
+                                <option value="" disabled selected>აირჩიეთ ქალაქი</option>
+                                <option>თბილისი</option>
+                                <option>ბათუმი</option>
+                                <option>ქუთაისი</option>
+                                <option>რუსთავი</option>
+                                <option>გორი</option>
+                                <option>ზუგდიდი</option>
+                                <option>ფოთი</option>
+                                <option>თელავი</option>
+                                <option>სხვა</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>მისამართი <span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="ქუჩა, სახლის ნომერი, ბინა" required>
+                        </div>
+
+                        <div class="form-divider"></div>
+
+                        <div class="form-group">
+                            <label>აირჩიეთ მოდელი <span class="required">*</span></label>
+                            <select class="form-input" required>
+                                <option value="" disabled selected>აირჩიეთ სათვალის მოდელი</option>
+                                <option>Classic Rectangle Pro — ₾189</option>
+                                <option>Round Vintage Elite — ₾219</option>
+                                <option>Geometric Avant-Garde — ₾169</option>
+                                <option>Executive Titanium — ₾259</option>
+                                <option>Cat Eye Elegance — ₾199</option>
+                                <option>Aviator Sport Shield — ₾179</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>რაოდენობა</label>
+                                <select class="form-input">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>დიოპტრია (თუ გჭირდებათ)</label>
+                                <input type="text" class="form-input" placeholder="მაგ: -2.5 / +1.0">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>დამატებითი კომენტარი</label>
+                            <textarea class="form-input" placeholder="ნებისმიერი სურვილი ან შეკითხვა..."></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit-btn pulse-attention">
+                            🛒 შეკვეთის გაფორმება
+                        </button>
+
+                        <div class="form-footer">
+                            გადახდა <span>ადგილზე მიტანისას</span> — არანაირი წინასწარი გადახდა!
+                        </div>
+
+                        <div class="form-security">
+                            <div class="form-security-item">🔒 დაცული მონაცემები</div>
+                            <div class="form-security-item">✓ SSL სერტიფიკატი</div>
+                            <div class="form-security-item">🛡️ 100% უსაფრთხო</div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- SUCCESS MESSAGE -->
+                <div class="form-success" id="formSuccess1">
+                    <div class="success-icon">✅</div>
+                    <div class="success-title">შეკვეთა მიღებულია!</div>
+                    <div class="success-text">
+                        მადლობა შეკვეთისთვის! ჩვენი კონსულტანტი დაგიკავშირდებათ <strong>15 წუთის</strong> განმავლობაში შეკვეთის დასადასტურებლად.
+                        <br><br>
+                        📞 თუ გაქვთ შეკითხვა, დაგვირეკეთ: <strong style="color:#d4af37;">+995 555 123 456</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+        <div class="products-container">
+            <div class="section-header fade-in">
+                <div class="section-tag">✦ კოლექცია ✦</div>
+                <h2>პოპულარული მოდელები</h2>
+                <p>აირჩიეთ თქვენზე მორგებული სტილი</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge">ბესტსელერი</div>
+                    <div class="product-image">
+                        <svg class="product-glasses-svg" width="220" height="100" viewBox="0 0 300 120">
+                            <rect x="30" y="20" width="100" height="70" rx="10" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <rect x="35" y="25" width="90" height="60" rx="8" fill="rgba(212,175,55,0.03)"/>
+                            <rect x="170" y="20" width="100" height="70" rx="10" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <rect x="175" y="25" width="90" height="60" rx="8" fill="rgba(212,175,55,0.03)"/>
+                            <line x1="130" y1="50" x2="170" y2="50" stroke="#d4af37" stroke-width="2"/>
+                            <line x1="30" y1="35" x2="10" y2="25" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="270" y1="35" x2="290" y2="25" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">კლასიკური</div>
+                        <div class="product-name">Classic Rectangle Pro</div>
+                        <div class="product-desc">ელეგანტური მართკუთხა ჩარჩო, Blue Light + Anti-Glare ლინზებით</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(284 შეფასება)</span>
+                        </div>
+                        <div class="product-price-row">
+                            <div class="product-price">₾189 <span class="original">₾299</span></div>
+                            <button class="btn-add-cart" onclick="addToCart()">+ კალათა</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge new">ახალი</div>
+                    <div class="product-image">
+                        <svg class="product-glasses-svg" width="220" height="100" viewBox="0 0 300 120">
+                            <circle cx="90" cy="55" r="45" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <circle cx="90" cy="55" r="40" fill="rgba(212,175,55,0.03)"/>
+                            <circle cx="210" cy="55" r="45" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <circle cx="210" cy="55" r="40" fill="rgba(212,175,55,0.03)"/>
+                            <path d="M135 50 Q150 40 165 50" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <line x1="45" y1="35" x2="15" y2="25" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="255" y1="35" x2="285" y2="25" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">რეტრო</div>
+                        <div class="product-name">Round Vintage Elite</div>
+                        <div class="product-desc">მრგვალი რეტრო სტილი, პრემიუმ ტიტანის ჩარჩო, ფოტოქრომული ლინზა</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(156 შეფასება)</span>
+                        </div>
+                        <div class="product-price-row">
+                            <div class="product-price">₾219 <span class="original">₾349</span></div>
+                            <button class="btn-add-cart" onclick="addToCart()">+ კალათა</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge sale">-40%</div>
+                    <div class="product-image">
+                        <svg class="product-glasses-svg" width="220" height="100" viewBox="0 0 300 120">
+                            <path d="M25 30 L70 85 L155 85 L155 30 Z" fill="none" stroke="#d4af37" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M30 33 L68 82 L152 82 L152 33 Z" fill="rgba(212,175,55,0.03)"/>
+                            <path d="M145 30 L230 30 L275 85 L145 85 Z" fill="none" stroke="#d4af37" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M148 33 L228 33 L272 82 L148 82 Z" fill="rgba(212,175,55,0.03)"/>
+                            <line x1="25" y1="35" x2="5" y2="25" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="275" y1="40" x2="295" y2="30" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">ავანგარდი</div>
+                        <div class="product-name">Geometric Avant-Garde</div>
+                        <div class="product-desc">გეომეტრიული დიზაინი, პროგრესიული ლინზა, ანტი-დაღლილობის ტექნოლოგია</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-count">(92 შეფასება)</span>
+                        </div>
+                        <div class="product-price-row">
+                            <div class="product-price">₾169 <span class="original">₾279</span></div>
+                            <button class="btn-add-cart" onclick="addToCart()">+ კალათა</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge">პრემიუმ</div>
+                    <div class="product-image">
+                        <svg class="product-glasses-svg" width="220" height="100" viewBox="0 0 300 120">
+                            <ellipse cx="90" cy="55" rx="60" ry="38" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <ellipse cx="90" cy="55" rx="55" ry="33" fill="rgba(212,175,55,0.03)"/>
+                            <ellipse cx="210" cy="55" rx="60" ry="38" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <ellipse cx="210" cy="55" rx="55" ry="33" fill="rgba(212,175,55,0.03)"/>
+                            <line x1="150" y1="45" x2="150" y2="52" stroke="#d4af37" stroke-width="2.5"/>
+                            <line x1="30" y1="38" x2="8" y2="28" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="270" y1="38" x2="292" y2="28" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                            <circle cx="145" cy="45" r="1.5" fill="#d4af37" opacity="0.5"/>
+                            <circle cx="155" cy="45" r="1.5" fill="#d4af37" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">ბიზნესი</div>
+                        <div class="product-name">Executive Titanium</div>
+                        <div class="product-desc">ტიტანის ჩარჩო, პროგრესიული ლინზა, იდეალური ბიზნეს შეხვედრებისთვის</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(203 შეფასება)</span>
+                        </div>
+                        <div class="product-price-row">
+                            <div class="product-price">₾259 <span class="original">₾399</span></div>
+                            <button class="btn-add-cart" onclick="addToCart()">+ კალათა</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge new">ახალი</div>
+                    <div class="product-image">
+                        <svg class="product-glasses-svg" width="220" height="100" viewBox="0 0 300 120">
+                            <path d="M25 60 Q25 25 90 25 Q130 25 130 55 Q130 85 90 85 Q25 85 25 60 Z" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M30 60 Q30 30 90 30 Q125 30 125 55 Q125 80 90 80 Q30 80 30 60 Z" fill="rgba(212,175,55,0.03)"/>
+                            <path d="M170 60 Q170 25 210 25 Q275 25 275 60 Q275 85 210 85 Q170 85 170 55 Z" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M175 60 Q175 30 210 30 Q270 30 270 60 Q270 80 210 80 Q175 80 175 55 Z" fill="rgba(212,175,55,0.03)"/>
+                            <path d="M130 50 Q150 38 170 50" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <line x1="25" y1="40" x2="5" y2="28" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="275" y1="40" x2="295" y2="28" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">ქალბატონებისთვის</div>
+                        <div class="product-name">Cat Eye Elegance</div>
+                        <div class="product-desc">ელეგანტური Cat Eye დიზაინი, ქალბატონებისთვის</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(178 შეფასება)</span>
+                        </div>
+                        <div class="product-price-row">
+                            <div class="product-price">₾199 <span class="original">₾319</span></div>
+                            <button class="btn-add-cart" onclick="addToCart()">+ კალათა</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge sale">-35%</div>
+                    <div class="product-image">
+                        <svg class="product-glasses-svg" width="220" height="100" viewBox="0 0 300 120">
+                            <path d="M30 35 Q30 20 90 20 Q140 20 140 55 Q140 90 90 90 Q30 90 30 55 Z" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M35 37 Q35 25 90 25 Q135 25 135 55 Q135 85 90 85 Q35 85 35 55 Z" fill="rgba(212,175,55,0.03)"/>
+                            <path d="M160 35 Q160 20 210 20 Q270 20 270 55 Q270 90 210 90 Q160 90 160 55 Z" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M165 37 Q165 25 210 25 Q265 25 265 55 Q265 85 210 85 Q165 85 165 55 Z" fill="rgba(212,175,55,0.03)"/>
+                            <line x1="140" y1="45" x2="160" y2="45" stroke="#d4af37" stroke-width="2"/>
+                            <line x1="30" y1="38" x2="8" y2="25" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="270" y1="38" x2="292" y2="25" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                            <circle cx="143" cy="55" r="3" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+                            <circle cx="157" cy="55" r="3" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">სპორტული</div>
+                        <div class="product-name">Aviator Sport Shield</div>
+                        <div class="product-desc">ავიატორის ფორმა, პოლარიზებული ლინზა</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(341 შეფასება)</span>
+                        </div>
+                        <div class="product-price-row">
+                            <div class="product-price">₾179 <span class="original">₾275</span></div>
+                            <button class="btn-add-cart" onclick="addToCart()">+ კალათა</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON SECTION -->
+    <section class="comparison-section">
+        <div class="section-header fade-in">
+            <div class="section-tag">✦ შედარება ✦</div>
+            <h2>ჩვენი vs. ჩვეულებრივი</h2>
+            <p>რით განსხვავდება ჩვენი პრემიუმ ლინზები</p>
+        </div>
+
+        <table class="comparison-table fade-in">
+            <thead>
+                <tr>
+                    <th>მახასიათებელი</th>
+                    <th>ჩვეულებრივი</th>
+                    <th>ClearVision Pro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Blue Light ფილტრი</td><td><span class="cross">✕</span></td><td><span class="check">✓</span></td></tr>
+                <tr><td>UV400 სრული დაცვა</td><td><span class="cross">✕</span></td><td><span class="check">✓</span></td></tr>
+                <tr><td>ანტი-რეფლექსი</td><td><span class="cross">✕</span></td><td><span class="check">✓</span></td></tr>
+                <tr><td>ჰიდროფობური საფარი</td><td><span class="cross">✕</span></td><td><span class="check">✓</span></td></tr>
+                <tr><td>ულტრა-მსუბუქი წონა</td><td><span class="cross">✕</span></td><td><span class="check">✓</span></td></tr>
+                <tr><td>გერმანული ლინზები</td><td><span class="cross">✕</span></td><td><span class="check">✓</span></td></tr>
+                <tr><td>2 წლიანი გარანტია</td><td><span class="cross">✕</span></td><td><span class="check">✓</span></td></tr>
+                <tr><td>უფასო მიტანა</td><td><span class="cross">✕</span></td><td><span class="check">✓</span></td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews-section" id="reviews">
+        <div class="reviews-container">
+            <div class="section-header fade-in">
+                <div class="section-tag">✦ შეფასებები ✦</div>
+                <h2>რას ამბობენ მომხმარებლები</h2>
+                <p>4.9/5 საშუალო შეფასება 1,200+ მომხმარებლისგან</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">ნ</div>
+                        <div>
+                            <div class="review-author">ნინო მ.</div>
+                            <div class="review-verified">✓ დადასტურებული შეძენა</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">საუკეთესო სათვალე რაც ოდესმე მქონია! ლინზები კრისტალურად სუფთაა, ჩარჩო ძალიან მსუბუქი.</div>
+                    <div class="review-date">2 დღის წინ</div>
+                </div>
+
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">გ</div>
+                        <div>
+                            <div class="review-author">გიორგი ბ.</div>
+                            <div class="review-verified">✓ დადასტურებული შეძენა</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">თვალის ექიმმა მირჩია და არ ვნანობ. ღამით მართვაც ბევრად ადვილი გახდა.</div>
+                    <div class="review-date">5 დღის წინ</div>
+                </div>
+
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">მ</div>
+                        <div>
+                            <div class="review-author">მარიამ კ.</div>
+                            <div class="review-verified">✓ დადასტურებული შეძენა</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">Cat Eye მოდელი ავირჩიე და უბრალოდ მიყვარს! მეგობრებმაც შეიძინეს.</div>
+                    <div class="review-date">1 კვირის წინ</div>
+                </div>
+
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">დ</div>
+                        <div>
+                            <div class="review-author">დავით ჯ.</div>
+                            <div class="review-verified">✓ დადასტურებული შეძენა</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">Executive Titanium — ჩემი ყოველდღიური თანამგზავრი. ბიზნეს შეხვედრებზე შესანიშნავი.</div>
+                    <div class="review-date">1 კვირის წინ</div>
+                </div>
+
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">ა</div>
+                        <div>
+                            <div class="review-author">ანა წ.</div>
+                            <div class="review-verified">✓ დადასტურებული შეძენა</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">მიტანა 1 დღეში! შეფუთვა ლამაზი, ქეისით და საწმენდი ქსოვილით.</div>
+                    <div class="review-date">2 კვირის წინ</div>
+                </div>
+
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">ლ</div>
+                        <div>
+                            <div class="review-author">ლევან გ.</div>
+                            <div class="review-verified">✓ დადასტურებული შეძენა</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★☆</div>
+                    <div class="review-text">პროგრამისტი ვარ, Blue Light ფილტრი მართლა მუშაობს. დაღლილობა 80%-ით ნაკლები.</div>
+                    <div class="review-date">3 კვირის წინ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faq">
+        <div class="section-header fade-in">
+            <div class="section-tag">✦ FAQ ✦</div>
+            <h2>ხშირად დასმული კითხვები</h2>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>როგორ ავირჩიო სწორი ჩარჩო?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>ჩვენი კონსულტანტი დაგეხმარებათ სახის ფორმის მიხედვით იდეალური ჩარჩოს შერჩევაში. გამოიყენეთ ვირტუალური მორგების ინსტრუმენტი.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>შემიძლია დიოპტრიული ლინზების ჩასმა?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>რა თქმა უნდა! ყველა ჩარჩო თავსებადია დიოპტრიულ ლინზებთან. შეკვეთისას მიუთითეთ რეცეპტი.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>რა ვადაში მოხდება მიტანა?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>თბილისში — 1 დღე, რეგიონებში — 2-3 დღე. მიტანა უფასოა!</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>რა არის Blue Light ფილტრი?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>ბლოკავს ეკრანებიდან გამოსხივებულ ლურჯ სინათლეს. ამცირებს თვალის დაღლილობას და თავის ტკივილს.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>როგორ მუშაობს გარანტია?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>2 წლიანი გარანტია ჩარჩოსა და ლინზებზე. 30 დღის დაბრუნების უფლება ნებისმიერი მიზეზით.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>როგორ მოვუაროთ სათვალეს?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>გამოიყენეთ თანდართული მიკროფიბრის ქსოვილი. არ გაწმინდოთ მშრალი ქაღალდით.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION WITH TIMER -->
+    <section class="cta-section">
+        <div class="cta-content fade-in">
+            <h2>⏰ შეზღუდული შეთავაზება</h2>
+            <p>მხოლოდ ამ კვირის ბოლომდე — 20% ფასდაკლება + უფასო პრემიუმ ქეისი</p>
+
+            <div class="cta-timer">
+                <div class="timer-box">
+                    <div class="timer-number" id="days">02</div>
+                    <div class="timer-label">დღე</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-number" id="hours">14</div>
+                    <div class="timer-label">საათი</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-number" id="minutes">37</div>
+                    <div class="timer-label">წუთი</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-number" id="seconds">52</div>
+                    <div class="timer-label">წამი</div>
+                </div>
+            </div>
+
+            <a href="#order-form-2" class="btn-primary pulse-attention">🛒 შეუკვეთე ფასდაკლებით</a>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- ====== ORDER FORM #2 — ბოლოში (BOTTOM) ====== -->
+    <!-- ============================================== -->
+    <section class="order-form-section variant-bottom" id="order-form-2">
+        <div class="order-form-container fade-in">
+            <div class="order-form-card">
+                <!-- FORM CONTENT -->
+                <div id="formContent2">
+                    <div class="form-header">
+                        <div class="form-icon">🎁</div>
+                        <h3>ბოლო შანსი — შეუკვეთე ახლა!</h3>
+                        <p>20% ფასდაკლება + უფასო პრემიუმ ქეისი მხოლოდ დღეს</p>
+                    </div>
+
+                    <div class="form-benefits">
+                        <div class="form-benefit">
+                            <span class="benefit-check">✓</span> -20% ფასდაკლება
+                        </div>
+                        <div class="form-benefit">
+                            <span class="benefit-check">✓</span> საჩუქრად ქეისი
+                        </div>
+                        <div class="form-benefit">
+                            <span class="benefit-check">✓</span> უფასო მიტანა
+                        </div>
+                    </div>
+
+                    <form onsubmit="submitForm(event, 2)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>სახელი <span class="required">*</span></label>
+                                <input type="text" class="form-input" placeholder="თქვენი სახელი" required>
+                            </div>
+                            <div class="form-group">
+                                <label>გვარი <span class="required">*</span></label>
+                                <input type="text" class="form-input" placeholder="თქვენი გვარი" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>ტელეფონის ნომერი <span class="required">*</span></label>
+                            <input type="tel" class="form-input" placeholder="+995 5XX XXX XXX" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>ქალაქი / რეგიონი <span class="required">*</span></label>
+                            <select class="form-input" required>
+                                <option value="" disabled selected>აირჩიეთ ქალაქი</option>
+                                <option>თბილისი</option>
+                                <option>ბათუმი</option>
+                                <option>ქუთაისი</option>
+                                <option>რუსთავი</option>
+                                <option>გორი</option>
+                                <option>ზუგდიდი</option>
+                                <option>ფოთი</option>
+                                <option>თელავი</option>
+                                <option>სხვა</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>მისამართი <span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="ქუჩა, სახლის ნომერი, ბინა" required>
+                        </div>
+
+                        <div class="form-divider"></div>
+
+                        <div class="form-group">
+                            <label>აირჩიეთ მოდელი <span class="required">*</span></label>
+                            <select class="form-input" required>
+                                <option value="" disabled selected>აირჩიეთ სათვალის მოდელი</option>
+                                <option>Classic Rectangle Pro — ₾189 → ₾151</option>
+                                <option>Round Vintage Elite — ₾219 → ₾175</option>
+                                <option>Geometric Avant-Garde — ₾169 → ₾135</option>
+                                <option>Executive Titanium — ₾259 → ₾207</option>
+                                <option>Cat Eye Elegance — ₾199 → ₾159</option>
+                                <option>Aviator Sport Shield — ₾179 → ₾143</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>რაოდენობა</label>
+                                <select class="form-input">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>დიოპტრია (თუ გჭირდებათ)</label>
+                                <input type="text" class="form-input" placeholder="მაგ: -2.5 / +1.0">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>დამატებითი კომენტარი</label>
+                            <textarea class="form-input" placeholder="ნებისმიერი სურვილი ან შეკითხვა..."></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit-btn pulse-attention">
+                            🎁 შეუკვეთე 20% ფასდაკლებით
+                        </button>
+
+                        <div class="form-footer">
+                            გადახდა <span>ადგილზე მიტანისას</span> — არანაირი წინასწარი გადახდა!
+                        </div>
+
+                        <div class="form-security">
+                            <div class="form-security-item">🔒 დაცული მონაცემები</div>
+                            <div class="form-security-item">✓ SSL სერტიფიკატი</div>
+                            <div class="form-security-item">🛡️ 100% უსაფრთხო</div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- SUCCESS MESSAGE -->
+                <div class="form-success" id="formSuccess2">
+                    <div class="success-icon">🎉</div>
+                    <div class="success-title">შეკვეთა წარმატებით გაფორმდა!</div>
+                    <div class="success-text">
+                        მადლობა! თქვენი 20% ფასდაკლება გააქტიურებულია! 🎁
+                        <br><br>
+                        კონსულტანტი დაგიკავშირდებათ <strong>15 წუთში</strong>.
+                        <br><br>
+                        📞 <strong style="color:#d4af37;">+995 555 123 456</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ClearVision Pro</h4>
+                    <p>პრემიუმ მხედველობის სათვალეების #1 ონლაინ მაღაზია საქართველოში.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>კოლექციები</h4>
+                    <a href="#">კლასიკური</a>
+                    <a href="#">რეტრო</a>
+                    <a href="#">ბიზნესი</a>
+                    <a href="#">სპორტული</a>
+                    <a href="#">ქალბატონების</a>
+                </div>
+                <div class="footer-col">
+                    <h4>დახმარება</h4>
+                    <a href="#">მიტანის პირობები</a>
+                    <a href="#">დაბრუნების პოლიტიკა</a>
+                    <a href="#">გარანტია</a>
+                    <a href="#">ზომების სახელმძღვანელო</a>
+                    <a href="#">კონტაქტი</a>
+                </div>
+                <div class="footer-col">
+                    <h4>კონტაქტი</h4>
+                    <a href="#">📞 +995 555 123 456</a>
+                    <a href="#">✉️ info@clearvision.ge</a>
+                    <a href="#">📍 თბილისი, საქართველო</a>
+                    <a href="#">⏰ 10:00 - 20:00</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 ClearVision Pro. ყველა უფლება დაცულია.</p>
+                <div class="payment-icons">
+                    <div class="payment-icon">VISA</div>
+                    <div class="payment-icon">MC</div>
+                    <div class="payment-icon">BOG</div>
+                    <div class="payment-icon">TBC</div>
+                    <div class="payment-icon">💵</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/995555123456" target="_blank" class="whatsapp-float">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- SCROLL TO TOP -->
+    <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+    <script>
+        // ===== COUNTER ANIMATION =====
+        function animateCounter(el, target, duration) {
+            let start = 0;
+            const step = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += step;
+                if (start >= target) {
+                    el.textContent = target.toLocaleString() + '+';
+                    clearInterval(timer);
+                } else {
+                    el.textContent = Math.floor(start).toLocaleString() + '+';
+                }
+            }, 16);
+        }
+
+        let countersStarted = false;
+        const observerCounter = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersStarted) {
+                    countersStarted = true;
+                    animateCounter(document.getElementById('counter1'), 12500, 2000);
+                    animateCounter(document.getElementById('counter2'), 48, 1500);
+                }
+            });
+        });
+        observerCounter.observe(document.querySelector('.hero-stats'));
+
+        // ===== FADE IN ON SCROLL =====
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observerFade = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeEls.forEach(el => observerFade.observe(el));
+
+        // ===== FAQ TOGGLE =====
+        function toggleFaq(el) {
+            const answer = el.nextElementSibling;
+            const toggle = el.querySelector('.faq-toggle');
+            const isOpen = answer.classList.contains('open');
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-toggle').forEach(t => t.textContent = '+');
+            if (!isOpen) {
+                answer.classList.add('open');
+                toggle.textContent = '−';
+            }
+        }
+
+        // ===== COUNTDOWN TIMER =====
+        function updateTimer() {
+            const now = new Date();
+            const endOfWeek = new Date();
+            endOfWeek.setDate(now.getDate() + (7 - now.getDay()));
+            endOfWeek.setHours(23, 59, 59, 0);
+            const diff = endOfWeek - now;
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById('days').textContent = String(d).padStart(2, '0');
+            document.getElementById('hours').textContent = String(h).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // ===== ADD TO CART =====
+        let cartCount = 0;
+        function addToCart() {
+            cartCount++;
+            document.querySelector('.cart-count').textContent = cartCount;
+            document.querySelector('.cart-count').style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                document.querySelector('.cart-count').style.transform = 'scale(1)';
+            }, 200);
+
+            const notif = document.createElement('div');
+            notif.textContent = '✓ კალათაში დაემატა!';
+            notif.style.cssText = `
+                position: fixed; top: 80px; right: 20px;
+                background: linear-gradient(135deg, #d4af37, #b8962e);
+                color: #000; padding: 15px 25px; border-radius: 12px;
+                font-size: 14px; font-weight: 700; z-index: 10000;
+                animation: slideIn 0.3s ease;
+                font-family: 'Noto Sans Georgian', sans-serif;
+                box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+            `;
+            document.body.appendChild(notif);
+            setTimeout(() => notif.remove(), 2000);
+        }
+
+        // ===== FORM SUBMISSION =====
+        function submitForm(event, formNumber) {
+            event.preventDefault();
+
+            const formContent = document.getElementById('formContent' + formNumber);
+            const formSuccess = document.getElementById('formSuccess' + formNumber);
+
+            // Hide form, show success
+            formContent.style.display = 'none';
+            formSuccess.classList.add('show');
+
+            // Scroll to success message
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Show notification
+            const notif = document.createElement('div');
+            notif.innerHTML = '🎉 შეკვეთა წარმატებით გაიგზავნა!';
+            notif.style.cssText = `
+                position: fixed; top: 80px; right: 20px;
+                background: linear-gradient(135deg, #2ecc71, #27ae60);
+                color: #fff; padding: 18px 30px; border-radius: 14px;
+                font-size: 15px; font-weight: 700; z-index: 10000;
+                animation: slideIn 0.3s ease;
+                font-family: 'Noto Sans Georgian', sans-serif;
+                box-shadow: 0 10px 30px rgba(46,204,113,0.4);
+            `;
+            document.body.appendChild(notif);
+            setTimeout(() => notif.remove(), 4000);
+        }
+
+        // ===== SCROLL TO TOP =====
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scrollTop');
+            if (window.scrollY > 500) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
